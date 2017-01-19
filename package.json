@@ -1,0 +1,20 @@
+{
+  "name": "largetable",
+  "version": "0.0.1",
+  "description": "Set an horizontal scrollbar on large tables",
+  "main": "largetable.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "large",
+    "table",
+    "responsive",
+    "jquery"
+  ],
+  "author": "brrd",
+  "license": "MIT",
+  "devDependencies": {
+    "jquery": "^3.1.1"
+  }
+}
