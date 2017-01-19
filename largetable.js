@@ -38,7 +38,7 @@
             $table.wrap("<div class='largetable-scroller'>");
             $scroller = $table.parent(".largetable-scroller");
 
-            if (scrollbarsHeight == null) {
+            if (!scrollbarsHeight) {
                 fixShadowsHeight();
             }
 
