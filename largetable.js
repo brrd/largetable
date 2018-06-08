@@ -11,7 +11,7 @@
         }
 
         // Fix shadow covering scollbars
-        function fixShadowsHeight() {
+        function fixShadowsHeight($scroller) {
             scrollbarsHeight = (function(div) {
                 return div.offsetHeight - div.clientHeight;
             })($scroller.get(0));
@@ -30,16 +30,16 @@
 
         // Init
         this.each(function() {
-            $table = $(this);
+            var $table = $(this);
 
             if (!$table.is("table")) return;
 
             $table.wrap("<div class='largetable'>");
             $table.wrap("<div class='largetable-scroller'>");
-            $scroller = $table.parent(".largetable-scroller");
+            var $scroller = $table.parent(".largetable-scroller");
 
             if (!scrollbarsHeight) {
-                fixShadowsHeight();
+                fixShadowsHeight($scroller);
             }
 
             renderShadows.bind($scroller)();
