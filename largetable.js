@@ -1,5 +1,5 @@
-(function( $ ) {
-	$.fn.largetable = function() {
+(function($) {
+	$.fn.largetable = function(options) {
 		var scrollbarsHeight;
 
 		// Add CSS rules
@@ -28,6 +28,20 @@
 			$container.toggleClass("largetable-shadow-right", pos < $(this).find("table").width() - $(this).width());
 		}
 
+		// Maximize table
+		function toggleMaximize($container) {
+			$container.toggleClass("largetable-maximized");
+		}
+
+		// Init maximize function
+		function initMaximize() {
+			var $container = $(this).parent(".largetable");
+			var $btn = $("<button class='largetable-maximize-btn'></button>").appendTo($container);
+			$btn.on("click", function() {
+				toggleMaximize($container);
+			});
+		}
+
 		// Init
 		this.each(function() {
 			var $table = $(this);
@@ -42,10 +56,13 @@
 				fixShadowsHeight($scroller);
 			}
 
+			if (options.enableMaximize) {
+				initMaximize.bind($scroller)();
+			}
 			renderShadows.bind($scroller)();
 			$scroller.scroll(renderShadows);
 		});
 
 		return this;
 	};
-}( jQuery ));
+}(jQuery));

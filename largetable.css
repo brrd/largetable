@@ -27,6 +27,67 @@
 	box-shadow: inset -30px 0px 10px -30px #424242;
 }
 
-.largetable-shadow-left:before, .largetable-shadow-right:after {
+:not(.largetable-maximized).largetable-shadow-left:before, 
+:not(.largetable-maximized).largetable-shadow-right:after {
 	width: 30px;
+}
+
+.largetable-maximize-btn {
+	display: none;
+	position: absolute;
+	right: 30px;
+	bottom: 35px;
+	background: #424242;
+	color: #fff;
+	font-family: serif;
+	opacity: .8;
+	border: 0;
+	width: 30px;
+	height: 30px;
+	font-size: 12px;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.largetable-maximize-btn:before {
+	content: "\25E3";
+	position: absolute;
+	bottom: 4px;
+	left: 7px;
+}
+
+.largetable-maximize-btn:after {
+	content: "\25E5";
+	position: absolute;
+	top: 4px;
+	right: 7px;
+}
+
+.largetable-maximize-btn:hover {
+	opacity: .9;
+}
+
+.largetable-shadow-left .largetable-maximize-btn, 
+.largetable-shadow-right .largetable-maximize-btn {
+	display: block;
+}
+
+.largetable-maximized .largetable-maximize-btn {
+	display: block;
+	position: fixed;
+}
+
+.largetable-maximized {
+	position: fixed;
+	background: #fff;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 99999;
+	overflow: auto;
+}
+
+.largetable-maximized .largetable-scroller {
+	padding: 20px;
 }
