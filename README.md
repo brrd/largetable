@@ -1,6 +1,6 @@
 # largetable
 
-> jQuery plugin to set an horizontal scrollbar on large tables
+> jQuery plugin to scroll in/maximize large tables
 
 ## Usage
 
@@ -28,11 +28,29 @@ Then include largetable files in the HTML:
 Trigger `largetable()` method on `table` elements:
 
 ```javascript    
-$(".your-text-container table").largetable();
+$(".your-text-container table").largetable(options);
 ```
+
+## Options
+
+The following options are available:
+
+```javascript
+const options = {
+  enableMaximize: false // Set it to true to enable table maximization.
+};
+```
+
+## Events
+
+The following events are dispatched by the plugin:
+
+* `toggleMaximize`
+* `maximize`
+* `unmaximize`
 
 See `demo.html` for more details.
 
 ## License
 
-The MIT License (MIT) - Copyright (c) 2017 Thomas Brouard (Edinum.org)
+The MIT License (MIT) - Copyright (c) 2019 Thomas Brouard (Edinum.org)
