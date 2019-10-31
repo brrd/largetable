@@ -1,6 +1,6 @@
 {
 	"name": "largetable",
-	"version": "1.0.0-dev",
+	"version": "1.0.0",
 	"description": "Set an horizontal scrollbar on large tables",
 	"main": "largetable.js",
 	"repository": {
