@@ -36,6 +36,13 @@
 			var $scroller = $container.find(".largetable-scroller");
 			renderShadows.bind($scroller)();
 
+			// Close maximized table on 'Esc' keypress
+			$(document).on("keyup", function (e) {
+				if (e.keyCode === 27) {
+					toggleMaximize($container);
+				}
+			});
+
 			// Dispatch event
 			var $table = $scroller.find("table");
 			$table.trigger("toggleMaximize");
