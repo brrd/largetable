@@ -31,9 +31,14 @@
 		// Maximize table
 		function toggleMaximize($container) {
 			$container.toggleClass("largetable-maximized");
+			
 			// Re-render shadows on unmaximize (for Blink-based browsers)
 			var $scroller = $container.find(".largetable-scroller");
 			renderShadows.bind($scroller)();
+
+			// Dispatch event
+			var $table = $scroller.find("table");
+			$table.trigger("toggleMaximize");
 		}
 
 		// Init maximize function

@@ -172,7 +172,11 @@
 	<script>
 		$("table").largetable({
 			enableMaximize: true
+		})
+		.on("toggleMaximize", function() {
+			console.log("toggleMaximize event");
 		});
+		
 	</script>
 </body>
 </html>
