@@ -33,6 +33,9 @@
 			var classname = "largetable-maximized";
 			$container.toggleClass(classname);
 			var isMaximized = $container.hasClass(classname);
+
+			// Disable scroll on body
+			$("body").toggleClass("largetable-noscroll", isMaximized);
 			
 			// Re-render shadows on unmaximize (for Blink-based browsers)
 			var $scroller = $container.find(".largetable-scroller");

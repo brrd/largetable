@@ -1,3 +1,7 @@
+body.largetable-noscroll {
+	overflow: hidden;
+}
+
 .largetable {
 	position: relative;
 }
