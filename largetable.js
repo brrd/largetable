@@ -37,18 +37,22 @@
 			// Re-render shadows on unmaximize (for Blink-based browsers)
 			var $scroller = $container.find(".largetable-scroller");
 			renderShadows.bind($scroller)();
-
-			// Close maximized table on 'Esc' keypress
-			$(document).on("keyup", function (e) {
-				if (e.keyCode === 27) {
-					toggleMaximize($container);
-				}
-			});
-
+			
 			// Dispatch event
 			var $table = $scroller.find("table");
 			$table.trigger("toggleMaximize");
 			$table.trigger(isMaximized ? "maximize" : "unmaximize");
+		}
+
+		// Close maximized table on 'Esc' keypress
+		function initKeypress() {
+			$(document).on("keyup", function (e) {
+				if (e.keyCode === 27) {
+					var $maximized = $(".largetable-maximized");
+					if ($maximized.length === 0) return;
+					toggleMaximize($maximized);
+				}
+			});
 		}
 
 		// Init maximize function
@@ -76,6 +80,7 @@
 
 			if (options.enableMaximize) {
 				initMaximize.bind($scroller)();
+				initKeypress();
 			}
 			renderShadows.bind($scroller)();
 			$scroller.scroll(renderShadows);
